@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./i18n";
 
 const app = (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <App />
   </Router>
 );
