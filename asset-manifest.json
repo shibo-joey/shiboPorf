@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/shiboPorf/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/shiboPorf/static/js/main.38db3b8d.chunk.js",
+    "main.js.map": "/shiboPorf/static/js/main.38db3b8d.chunk.js.map",
+    "runtime-main.js": "/shiboPorf/static/js/runtime-main.28976a50.js",
+    "runtime-main.js.map": "/shiboPorf/static/js/runtime-main.28976a50.js.map",
+    "static/css/2.54787924.chunk.css": "/shiboPorf/static/css/2.54787924.chunk.css",
+    "static/js/2.00488d07.chunk.js": "/shiboPorf/static/js/2.00488d07.chunk.js",
+    "static/js/2.00488d07.chunk.js.map": "/shiboPorf/static/js/2.00488d07.chunk.js.map",
+    "static/js/3.a374312e.chunk.js": "/shiboPorf/static/js/3.a374312e.chunk.js",
+    "static/js/3.a374312e.chunk.js.map": "/shiboPorf/static/js/3.a374312e.chunk.js.map",
+    "index.html": "/shiboPorf/index.html",
+    "static/css/2.54787924.chunk.css.map": "/shiboPorf/static/css/2.54787924.chunk.css.map",
+    "static/css/main.9d5b29c0.chunk.css.map": "/shiboPorf/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.00488d07.chunk.js.LICENSE.txt": "/shiboPorf/static/js/2.00488d07.chunk.js.LICENSE.txt",
+    "static/media/NCUT.ad87c958.jpg": "/shiboPorf/static/media/NCUT.ad87c958.jpg",
+    "static/media/NCUTIcon.97fd513e.png": "/shiboPorf/static/media/NCUTIcon.97fd513e.png",
+    "static/media/SKYCATCH.5488c2b1.jpg": "/shiboPorf/static/media/SKYCATCH.5488c2b1.jpg",
+    "static/media/UB.c5cef569.jpg": "/shiboPorf/static/media/UB.c5cef569.jpg",
+    "static/media/UBengineering.14f1580e.png": "/shiboPorf/static/media/UBengineering.14f1580e.png",
+    "static/media/toyota.5e29fd4c.jpg": "/shiboPorf/static/media/toyota.5e29fd4c.jpg",
+    "static/media/yorotech.05d958e4.png": "/shiboPorf/static/media/yorotech.05d958e4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.28976a50.js",
+    "static/css/2.54787924.chunk.css",
+    "static/js/2.00488d07.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.38db3b8d.chunk.js"
+  ]
+}
