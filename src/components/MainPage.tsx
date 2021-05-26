@@ -33,7 +33,7 @@ const MainPage: React.FC<MainPageProps> = ({ theme }) => {
         </span>
         <span style={{ color: "#ea4335" }}>Person</span>
       </Title>
-      <Detail>asdasdadasd</Detail>
+      <Detail></Detail>
     </Container>
   );
 };
