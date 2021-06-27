@@ -11,6 +11,9 @@ const Container = styled.div`
   margin-left: 120px;
   margin-top: 30px;
   min-height: 930px;
+  @media only screen and (max-width: 745px) {
+    margin-left: 50px;
+  }
 `;
 
 const Bachelor = styled.div`
@@ -46,6 +49,7 @@ const School = styled.div`
   @media only screen and (max-width: 745px) {
     margin-left: 20px;
     font-size: 20px;
+    max-width: 90%;
   }
 `;
 

@@ -38,6 +38,9 @@ const CompanyName = styled.h2`
 `;
 const TimeRange = styled.div`
   width: 388px;
+  @media only screen and (max-width: 580px) {
+    width: 320px;
+  }
 `;
 const Location = styled.h3`
   margin-top: 10px;
@@ -65,6 +68,11 @@ const ItemsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 10px;
+  @media only screen and (max-width: 1000px) {
+    width: 300px;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+  }
 `;
 const Responsibility = styled.h3``;
 

@@ -33,6 +33,9 @@ const NavTitle = styled.div`
   @media only screen and (max-width: 580px) {
     margin-left: 60px !important;
   }
+  @media only screen and (max-width: 400px) {
+    margin-left: 15px !important;
+  }
 `;
 
 const StyledSwitch = styled(Switch)`
@@ -40,6 +43,9 @@ const StyledSwitch = styled(Switch)`
   margin-left: 60px;
   @media only screen and (max-width: 580px) {
     margin-left: 30px;
+  }
+  @media only screen and (max-width: 510px) {
+    display: none;
   }
 `;
 const StyledSpan = styled.span`

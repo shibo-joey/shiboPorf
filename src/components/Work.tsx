@@ -7,6 +7,9 @@ const Container = styled.div`
   margin-left: 120px;
   margin-top: 30px;
   min-height: 830px;
+  @media only screen and (max-width: 580px) {
+    margin-left: 30px !important;
+  }
 `;
 
 export interface WorkProps {

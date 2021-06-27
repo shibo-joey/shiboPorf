@@ -18,6 +18,9 @@ const Container = styled.div`
   @media only screen and (max-width: 1515px) {
     flex-direction: column;
   }
+  @media only screen and (max-width: 600px) {
+    margin-left: 60px;
+  }
 `;
 
 const SocialCard = styled.div`
@@ -62,11 +65,25 @@ const SocialCard = styled.div`
       background-color: #e9cf4f;
     }
   }
+  @media only screen and (max-width: 600px) {
+    height: 250px;
+    width: 200px;
+    :hover {
+      width: 200px;
+      height: 250px;
+      box-shadow: 5px 10px #888888;
+      background-color: #e9cf4f;
+    }
+  }
 `;
 const SocialImg = styled.img`
   border-radius: 20px 20px 0 0;
   height: 260px;
   width: 400px;
+  @media only screen and (max-width: 600px) {
+    height: 250px;
+    width: 200px;
+  }
 `;
 const StyledTag = styled(Tag)`
   margin-top: 30px;
@@ -77,12 +94,18 @@ const StyledTag = styled(Tag)`
   line-height: 40px;
   font-size: 15px;
   border-radius: 5px;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const StyledLink = styled.div`
   margin-top: 20px;
   margin-left: 30px;
   color: grey;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const StyledDetail = styled.div`
@@ -96,6 +119,9 @@ const StyledDetail = styled.div`
   }
   @media only screen and (max-width: 955px) {
     margin-top: 40px;
+  }
+  @media only screen and (max-width: 600px) {
+    display: none;
   }
 `;
 
