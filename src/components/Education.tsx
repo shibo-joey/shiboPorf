@@ -104,6 +104,7 @@ const FlowingText = styled.p`
 
 const FlowingTextSub = styled.p`
   margin-top: 40px;
+  margin-bottom: 2rem;
   animation: flowing2 16s linear infinite;
   transform: translateX(100%);
   white-space: nowrap;
@@ -143,6 +144,8 @@ const Education: React.FC<EducationProps> = ({ theme }) => {
           color: lightMode ? "black" : "white",
           display: "flex",
           flexDirection: "column",
+          overflowX: "hidden",
+          width: "90%",
         }}
       >
         <FlowingText>
