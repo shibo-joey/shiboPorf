@@ -11,12 +11,18 @@ const Container = styled.div`
   margin-left: 120px;
   margin-top: 30px;
   min-height: 830px;
+  @media only screen and (max-width: 600px) {
+    margin-left: 60px;
+  }
 `;
 
 const Lang = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 const OtherS = styled.ul`
   display: grid;
@@ -24,6 +30,9 @@ const OtherS = styled.ul`
   gap: 10px;
   margin-bottom: 60px;
   font-size: 15px;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const SkillItem = styled.li`
