@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://shibo-joey.github.io/shiboPorf/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "https://shibo-joey.github.io/shiboPorf/static/js/main.d24ffb2e.chunk.js",
-    "main.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/main.d24ffb2e.chunk.js.map",
+    "main.js": "https://shibo-joey.github.io/shiboPorf/static/js/main.615f69e6.chunk.js",
+    "main.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/main.615f69e6.chunk.js.map",
     "runtime-main.js": "https://shibo-joey.github.io/shiboPorf/static/js/runtime-main.ca8abd59.js",
     "runtime-main.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/runtime-main.ca8abd59.js.map",
     "static/css/2.54787924.chunk.css": "https://shibo-joey.github.io/shiboPorf/static/css/2.54787924.chunk.css",
@@ -27,6 +27,6 @@
     "static/css/2.54787924.chunk.css",
     "static/js/2.c0a2eacc.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.d24ffb2e.chunk.js"
+    "static/js/main.615f69e6.chunk.js"
   ]
 }
