@@ -33,7 +33,9 @@ const MainPage: React.FC<MainPageProps> = ({ theme }) => {
         </span>
         <span style={{ color: "#ea4335" }}>Person</span>
       </Title>
-      <Detail></Detail>
+      <Detail >
+        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHY3LnUAL5jAg/profile-displayphoto-shrink_200_200/0/1584083683092?e=2147483647&v=beta&t=4pKBZOHZzaDBLSQSE0IOx8EDdY4oh61mzlaR_M52L6Q" style={{ display: "none" }}/>
+      </Detail>
     </Container>
   );
 };
