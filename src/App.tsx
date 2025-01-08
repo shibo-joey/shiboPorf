@@ -10,9 +10,9 @@ import Navigation from "./components/Navigation";
 import { useState } from "react";
 import Footer from "./components/Footer";
 import MainPage from "./components/MainPage";
+import { Helmet } from "react-helmet-async";
 
 function App() {
-  console.log(language[0].name);
   const [theme, setTheme] = useState("light");
 
   const changeTheme = () => {
@@ -21,6 +21,22 @@ function App() {
   };
   return (
     <div style={{ background: theme === "light" ? "white" : "#0d1117" }}>
+      <Helmet>
+        <title>Shibo Yang - Senior Software Engineer</title>
+        <meta
+          name="description"
+          content="Shibo Yang - Senior Software Engineer specializing in web development, cloud computing, and modern frameworks like Next.js, React, and Node.js. Explore my portfolio and projects."
+        />
+        <meta
+          name="keywords"
+          content="Shibo Yang, software engineer, web developer, React, Next.js, AWS, Tencent Cloud, Node.js, JavaScript, TypeScript, portfolio, coding projects"
+        />
+        <meta name="author" content="Shibo Yang" />
+        <link
+          rel="canonical"
+          href="https://www.linkedin.com/in/shibo-yang-912134111"
+        />
+      </Helmet>
       <Navigation theme={theme} changeTheme={changeTheme} />
       <Switch>
         <Route

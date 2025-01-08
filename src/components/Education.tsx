@@ -174,7 +174,6 @@ const Education: React.FC<EducationProps> = ({ theme }) => {
               {t("Master of Science in Computer and Electrical Engineering")}
             </DetailItem>
             <DetailItem> {t("Focused on Internet of Things")}</DetailItem>
-            <DetailItem>2018 - 2020</DetailItem>
             <SchoolIcon
               src={UBEngineering}
               style={{
@@ -200,7 +199,6 @@ const Education: React.FC<EducationProps> = ({ theme }) => {
               {t("Bachelor of Engineering in Mechanical Automation")}
             </DetailItem>
             <DetailItem>{t("Focused on Robotic Control")}</DetailItem>
-            <DetailItem>2014 - 2018</DetailItem>
             <SchoolIcon
               src={NCUTIcon}
               style={{

@@ -1,11 +1,42 @@
 import toyotaImg from "../assets/workImage/toyota.jpg";
 import yoyotech from "../assets/workImage/yorotech.png";
 import skycatch from "../assets/workImage/SKYCATCH.jpg";
+import nio from "../assets/workImage/nio.webp";
 
 export const workexperiences = [
   {
+    companyName: "NIO",
+    duration: ["08/2021", "Current"],
+    details: [
+      "Architected and developed many scalable, multilingual websites from the ground up, supporting deployment and marketing across over 10 countries with Next.js and Node.js.",
+      {
+        sub: "<a href='https://www.nio.cn'>https://www.nio.cn</a>, <a href='https://www.nio.com'>https://www.nio.com</a>",
+      },
+      {
+        sub: "<a href='https://www.firefly.world'>https://www.firefly.world</a>, <a href='https://www.firefly.com.cn'>https://www.firefly.com.cn</a>",
+      },
+      {
+        sub: "<a href='https://phone.nio.com'>https://phone.nio.com</a>, <a href='https://phone.nio.cn'>https://phone.nio.cn</a>",
+      },
+      {
+        sub: "<a href='https://www.onvo.cn'>https://www.onvo.cn</a>, <a href='https://www.xptglobal.com'>https://www.xptglobal.com</a>",
+      },
+      "Engineered and developed a scalable and high-performance Content Management System (CMS) to manage dynamic content, reusable components, and over 20 diverse functionalities across multiple websites in real-time. Enabled seamless localization and scalability, reducing launch time for a new brands or a new country from several months to under one week.",
+      "Introduced many different technologies and tools to improve website performance and reliability.",
+      "Configured and integrated CDNs for applications and assets to ensure global content delivery, reducing load times and improving performance for international users.",
+      "Developed new features and functionalities based on SEO principles. (dynamic sitemaps, keyword research, content and URL optimization, images and media optimization)",
+      "Implemented website analysis tools like hotjar for behavior tracking, GA and GTM for website data analysis, sensorsdata for event tracking. (All under GDPR regulations)",
+      "Built Internal websites, tools and scripts for internal employees about news, benefits, workflow, company products shop etc.",
+      "Built SDKs, APIs, scripts for international teams across the world to improve user experiences and product efficiency with Go and Python",
+    ],
+    stacks: ["NextJS", "React", "Vue", "Node", "Go"],
+    location: "Irvine, CA",
+    position: "Senior Software Engineer",
+    companyLink: nio,
+  },
+  {
     companyName: "Toyota Connected North America",
-    duration: ["12/2020", "Now", "Currently Working"],
+    duration: ["12/2020", "8/2021"],
     details: [
       "Structured and developed a Web Report System Website for Toyota dealers/customers that helps them to more effectively understand the vehicle health and value. (TypeScript, React.js, React-Redux, Redux-Toolkits, Semantic UI, Styled-Component)",
       "Structured and developed an Administration App to provide administrative and statistics functionalities in Toyota system. (TypeScript, Angular7=>React, Material UI, Sass, Redux-Toolkits)",

@@ -9,6 +9,7 @@ const Container = styled.div`
   min-height: 830px;
   @media only screen and (max-width: 580px) {
     margin-left: 30px !important;
+    margin-right: 30px !important;
   }
 `;
 
@@ -20,6 +21,9 @@ const Work: React.FC<WorkProps> = ({ theme }) => {
   return (
     <Container>
       <div>
+        <h1 style={{ color: theme === "light" ? "black" : "white" }}>
+          Perfessional Experiences
+        </h1>
         {workexperiences.map((item) => (
           <WorkItem
             workoBJ={item}

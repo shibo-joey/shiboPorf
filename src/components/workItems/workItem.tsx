@@ -23,9 +23,8 @@ const WorkingImg = styled.img`
   width: 450px;
   align-self: center;
   border-radius: 10px;
-  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
-    rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
-    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+  box-shadow: #00bebe -5px 5px, rgba(240, 46, 170, 0.3) -2px 2px,
+    rgba(240, 46, 170, 0.2) -8px 8px, rgba(240, 46, 170, 0.1) -10px 10px;
   @media only screen and (max-width: 1450px) {
     display: none;
   }
@@ -76,6 +75,20 @@ const ItemsContainer = styled.div`
 `;
 const Responsibility = styled.h3``;
 
+const StyledSlider = styled(Slider)`
+  .ant-slider-mark-text:first-child {
+    transform: unset !important;
+  }
+
+  .ant-slider-mark-text:last-child {
+    transform: translateX(-100%) !important;
+  }
+`;
+
+const StyledList = styled.ul`
+  padding-left: 20px;
+`;
+
 export interface WorkItemProps {
   workoBJ: any;
   theme: string;
@@ -96,7 +109,6 @@ const WorkItem: React.FC<WorkItemProps> = ({ workoBJ, theme, companyLink }) => {
       },
       label: <strong>{workoBJ.duration[0]}</strong>,
     },
-    50: <strong>{workoBJ.duration[2]}</strong>,
     100: {
       style: {
         color: "#f50",
@@ -115,7 +127,7 @@ const WorkItem: React.FC<WorkItemProps> = ({ workoBJ, theme, companyLink }) => {
           </CompanyName>
           <Title>{workoBJ.position}</Title>
           <TimeRange>
-            <Slider defaultValue={100} marks={marks}></Slider>
+            <StyledSlider defaultValue={100} marks={marks}></StyledSlider>
           </TimeRange>
           <Location>{workoBJ.location}</Location>
           <Stacks>
@@ -129,13 +141,27 @@ const WorkItem: React.FC<WorkItemProps> = ({ workoBJ, theme, companyLink }) => {
         </RightDetail>
         <Details>
           <Responsibility>Responsibility</Responsibility>
-          <ul>
-            {workoBJ.details.map((item: string) => (
-              <li key={item} style={{ marginTop: "6px" }}>
-                {item}
-              </li>
-            ))}
-          </ul>
+          <StyledList>
+            {workoBJ.details.map((item: any) =>
+              typeof item !== "string" ? (
+                <li
+                  key={item}
+                  style={{
+                    marginTop: "6px",
+                    marginLeft: "30px",
+                    listStyleType: "circle",
+                  }}
+                  dangerouslySetInnerHTML={{ __html: item.sub }}
+                />
+              ) : (
+                <li
+                  key={item}
+                  style={{ marginTop: "6px" }}
+                  dangerouslySetInnerHTML={{ __html: item }}
+                />
+              )
+            )}
+          </StyledList>
         </Details>
       </Content>
       <hr style={{ marginBottom: "50px", marginTop: "50px" }} />

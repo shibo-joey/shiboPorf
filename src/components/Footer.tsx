@@ -184,7 +184,7 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
         </FirstRow>
       </FooterColumns>
       <CopyRight lightmode={lightMode}>
-        Copyright || 2020 Design by @SHIBO || All Rights Reserved
+        Copyright || 2025 Design by @SHIBO || All Rights Reserved
       </CopyRight>
     </FooterContainer>
   );
