@@ -56,4 +56,28 @@
     @apply bg-background text-foreground antialiased;
     margin: 0;
   }
+
+  @keyframes flowing {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes flowing2 {
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-flowing {
+    animation: flowing 16s linear infinite;
+    transform: translateX(-100%);
+    white-space: nowrap;
+  }
+
+  .animate-flowing2 {
+    animation: flowing2 16s linear infinite;
+    transform: translateX(100%);
+    white-space: nowrap;
+  }
 }

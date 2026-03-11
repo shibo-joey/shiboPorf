@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   Briefcase,
@@ -16,88 +15,21 @@ import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { Switch } from "./ui/switch";
 
-const NavTitle = styled.div`
-  margin-left: 120px !important;
-  font-size: 30px;
-  line-height: 70px;
-  margin-top: 30px;
-  min-width: 337px;
-  @media only screen and (max-width: 580px) {
-    margin-left: 60px !important;
-  }
-  @media only screen and (max-width: 400px) {
-    margin-left: 15px !important;
-  }
-`;
-
-const StyledSwitch = styled(Switch)`
-  margin-top: 60px;
-  margin-left: 60px;
-  @media only screen and (max-width: 580px) {
-    margin-left: 30px;
-  }
-  @media only screen and (max-width: 510px) {
-    display: none;
-  }
-`;
-const StyledSpan = styled.span`
-  margin-top: 60px;
-  margin-left: 20px;
-  font-weight: bold;
-  @media only screen and (max-width: 700px) {
-    display: none;
-  }
-`;
-const StyledButton = styled(Button)`
-  margin-top: 55px;
-  margin-left: 20px;
-  font-weight: 500;
-  @media only screen and (max-width: 920px) {
-    display: none;
-  }
-`;
-
-const Timer = styled.div`
-  margin-top: 55px;
-  margin-left: 30px;
-  font-size: 20px;
-  @media only screen and (max-width: 1420px) {
-    display: none;
-  }
-`;
-const Second = styled.div`
-  margin-top: 20px;
-  margin-left: 30px;
-  font-size: 50px;
-  @media only screen and (max-width: 1420px) {
-    display: none;
-  }
-`;
-
-const LanContainer = styled.div`
-  margin-left: 50px;
-  @media only screen and (max-width: 1120px) {
-    display: none;
-  }
-`;
-
 const Navigation: React.FC = () => {
   const history = useHistory();
+  const location = useLocation();
   const { t, i18n } = useTranslation();
   const { resolvedTheme, setTheme } = useTheme();
 
   const [isEnglish, setIsEnglish] = useState(true);
   //clock
-  const [currentYear, setCurrentYear] = useState<string>("0");
-  const [currentMonth, setCurrentMonth] = useState<string>("0");
-  const [currentDay, setCurrentDay] = useState<string>("0");
   const [currentHour, setCurrentHour] = useState<string>("0");
   const [currentMins, setCurrentMins] = useState<string>("0");
   const [currentSecs, setCurrentSecs] = useState<string>("0");
   //**
 
   const isDark = resolvedTheme === "dark";
-  const themeText = isDark ? "Let's go light" : "Let's go dark";
+  const themeText = isDark ? "Light" : "Dark";
   const title = isDark ? "You have a good taste" : "Welcome to Shibo's page";
 
   const updateTime = () => {
@@ -106,18 +38,12 @@ const Navigation: React.FC = () => {
       else return numString;
     };
 
-    let currentYear = new Date(Date.now()).getFullYear().toLocaleString();
-    let currentMonth = new Date(Date.now()).getUTCMonth().toLocaleString();
-    let currentDay = new Date(Date.now()).getDate().toLocaleString();
     let currentHour = digitConverter(
       new Date(Date.now()).getHours().toLocaleString()
     );
     let currentMins = new Date(Date.now()).getMinutes().toLocaleString();
     let currentSecs = new Date(Date.now()).getSeconds().toLocaleString();
 
-    setCurrentYear(currentYear);
-    setCurrentMonth(String(Number(currentMonth) + 1));
-    setCurrentDay(currentDay);
     setCurrentHour(currentHour);
     setCurrentMins(currentMins);
     setCurrentSecs(currentSecs);
@@ -147,65 +73,103 @@ const Navigation: React.FC = () => {
     [t]
   );
 
-  return (
-    <>
-      <div
-        className="flex items-center border-b bg-background text-foreground"
-      >
-        <NavTitle onClick={() => history.push("/")}>{t(title)}</NavTitle>
-        <div className="mt-[60px] ml-[60px] flex items-center gap-2">
-          <Sun className="hidden text-muted-foreground sm:block" size={18} />
-          <StyledSwitch
-            checked={isDark}
-            onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-          />
-          <Moon className="hidden text-muted-foreground sm:block" size={18} />
-        </div>
-        <StyledSpan>{t(themeText)}</StyledSpan>
-        <StyledButton
-          variant="secondary"
-          onClick={() => window.open("https://github.com/shibo-joey", "_blank")}
-        >
-          <Github />
-          {t("Github")}
-        </StyledButton>
-        <div style={{ display: "flex", marginLeft: "30px" }}>
-          <Timer>{`${currentYear}/${currentMonth}/${currentDay}`}</Timer>
-          <Timer>{`${currentHour}:${currentMins}`}</Timer>
-          <Second>{currentSecs}</Second>
-        </div>
-        <LanContainer>
-          <StyledButton
-            variant={isEnglish ? "default" : "outline"}
-            onClick={() => handleLang("en")}
-          >
-            EN
-          </StyledButton>
-          <StyledButton
-            variant={!isEnglish ? "default" : "outline"}
-            onClick={() => handleLang("zh")}
-          >
-            CHI
-          </StyledButton>
-        </LanContainer>
-      </div>
+  // Get current route from location pathname
+  const getCurrentPage = () => {
+    const pathname = location.pathname;
+    if (pathname.includes("/education")) return "education";
+    if (pathname.includes("/work")) return "work";
+    if (pathname.includes("/social")) return "social";
+    if (pathname.includes("/skills")) return "skills";
+    return "home";
+  };
 
-      <div>
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          return (
+  const currentPage = getCurrentPage();
+
+  return (
+    <div className="sticky top-0 z-50 bg-background border-b">
+      <div className="container mx-auto">
+        {/* Top Navigation Bar */}
+        <div className="flex items-center justify-between py-4">
+          <div
+            className="text-xl font-bold cursor-pointer hover:text-primary transition-colors"
+            onClick={() => history.push("/")}
+          >
+            {t(title)}
+          </div>
+
+          <div className="flex items-center gap-4">
+            {/* Theme Toggle */}
+            <div className="flex items-center gap-2">
+              <Sun className="h-4 w-4 text-muted-foreground" />
+              <Switch
+                checked={isDark}
+                onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+              />
+              <Moon className="h-4 w-4 text-muted-foreground" />
+              <span className="text-sm text-muted-foreground ml-2">{t(themeText)}</span>
+            </div>
+
+            {/* Language Selector */}
+            <div className="flex rounded-md border overflow-hidden">
+              <Button
+                variant={isEnglish ? "default" : "ghost"}
+                size="sm"
+                className="h-8 rounded-none border-0 px-3"
+                onClick={() => handleLang("en")}
+              >
+                EN
+              </Button>
+              <div className="h-6 my-auto border-r border-border"></div>
+              <Button
+                variant={!isEnglish ? "default" : "ghost"}
+                size="sm"
+                className="h-8 rounded-none border-0 px-3"
+                onClick={() => handleLang("zh")}
+              >
+                中文
+              </Button>
+            </div>
+
+            {/* GitHub Button */}
             <Button
-              key={item.key}
-              variant="ghost"
-              onClick={() => history.push(`./${item.key}`)}
+              variant="outline"
+              size="sm"
+              className="gap-2"
+              onClick={() => window.open("https://github.com/shibo-joey", "_blank")}
             >
-              <Icon />
-              {item.label}
+              <Github className="h-4 w-4" />
+              <span className="hidden sm:inline">GitHub</span>
             </Button>
-          );
-        })}
+
+            {/* Live Clock */}
+            <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="font-mono">
+                {currentHour}:{currentMins}:{currentSecs}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navigation Links */}
+        <div className="flex overflow-x-auto py-2 -mx-2 px-2">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = currentPage === item.key;
+            return (
+              <Button
+                key={item.key}
+                variant={isActive ? "outline" : "ghost"}
+                className={isActive ? "border-primary" : "flex-shrink-0 gap-2 px-4 py-2 h-auto"}
+                onClick={() => history.push(`./${item.key}`)}
+              >
+                <Icon className={isActive ? "h-4 w-4 text-primary" : "h-4 w-4"} />
+                <span className={isActive ? "text-primary" : ""}>{item.label}</span>
+              </Button>
+            );
+          })}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,220 +1,167 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { courses1, courses2 } from "./../utils/courses";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Badge } from "./ui/badge";
+
+// Import images
 import UB from "../assets/UB.jpg";
 import UBEngineering from "../assets/UBengineering.png";
 import NCUT from "../assets/NCUT.jpg";
 import NCUTIcon from "../assets/NCUTIcon.png";
-import { useTranslation } from "react-i18next";
-import { courses1, courses2 } from "./../utils/courses";
-
-const Container = styled.div`
-  margin-left: 120px;
-  margin-top: 30px;
-  min-height: 930px;
-  @media only screen and (max-width: 745px) {
-    margin-left: 50px;
-  }
-`;
-
-const Bachelor = styled.div`
-  background-color: #f5f5f5;
-  height: 380px;
-  width: 90%;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  display: Flex;
-  flex-direction: column;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-`;
-
-const Master = styled.div`
-  background-color: #f5f5f5;
-  height: 380px;
-  width: 90%;
-  margin-top: 80px;
-  display: Flex;
-  flex-direction: column;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-`;
-
-const School = styled.div`
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-left: 80px;
-  max-width: 50%;
-  display: flex;
-  flex-direction: column;
-  max-height: 360px;
-  @media only screen and (max-width: 745px) {
-    margin-left: 20px;
-    font-size: 20px;
-    max-width: 90%;
-  }
-`;
-
-const Detail = styled.div`
-  font-size: 20px;
-  display: flex;
-  margin-top: 15px;
-  margin-left: 80px;
-  @media only screen and (max-width: 745px) {
-    margin-left: 20px;
-    font-size: 18px;
-  }
-`;
-
-const DetailItem = styled.li`
-  margin-bottom: 20px;
-`;
-const DetailItems = styled.div`
-  margin-left: 10%;
-  @media only screen and (max-width: 1300px) {
-    transition: 1s;
-    margin-left: 0;
-  }
-`;
-
-const SchoolImg = styled.img`
-  width: 450px;
-  height: 260px;
-  @media only screen and (max-width: 1300px) {
-    display: none;
-  }
-`;
-const SchoolIcon = styled.img`
-  width: 300px;
-  border-radius: 5px;
-  @media only screen and (max-width: 675px) {
-    display: none;
-  }
-`;
-const FlowingText = styled.p`
-  margin-top: 40px;
-  margin-bottom: 30px;
-  animation: flowing 16s linear infinite;
-  transform: translateX(-100%);
-  white-space: nowrap;
-  @keyframes flowing {
-    100% {
-      transform: translateX(100%);
-    }
-  }
-`;
-
-const FlowingTextSub = styled.p`
-  margin-top: 40px;
-  margin-bottom: 2rem;
-  animation: flowing2 16s linear infinite;
-  transform: translateX(100%);
-  white-space: nowrap;
-  @keyframes flowing2 {
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-`;
-
-const CourseItem = styled.span`
-  margin-left: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-`;
 
 const Education: React.FC = () => {
-  const [lightMode, setLightMode] = useState(true);
   const { t } = useTranslation();
-  const iconColor = "rgb(175 175 175)";
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setLightMode(!isDark);
-
-    const observer = new MutationObserver(() => {
-      const nowDark = document.documentElement.classList.contains("dark");
-      setLightMode(!nowDark);
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <Container>
-      <div
-        style={{
-          color: lightMode ? "black" : "white",
-          display: "flex",
-          flexDirection: "column",
-          overflowX: "hidden",
-          width: "90%",
-        }}
-      >
-        <FlowingText>
-          {courses1.map((course) => (
-            <CourseItem>{course}</CourseItem>
-          ))}
-        </FlowingText>
-        <FlowingTextSub>
-          {courses2.map((course) => (
-            <CourseItem>{course}</CourseItem>
-          ))}
-        </FlowingTextSub>
+    <div className="container py-12">
+      <div className="flex items-end justify-between gap-6 mb-8">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            {t("Education")}
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
+            {t("My academic journey and relevant coursework")}
+          </p>
+        </div>
       </div>
-      <Master
-        style={{
-          backgroundColor: lightMode ? "rgb(245 245 245)" : "#161d25",
-          color: lightMode ? "black" : "white",
-        }}
-      >
-        <School>{t("State University of New York at Buffalo")}</School>
 
-        <Detail>
-          <SchoolImg src={UB}></SchoolImg>
-          <DetailItems>
-            <DetailItem>
-              {t("Master of Science in Computer and Electrical Engineering")}
-            </DetailItem>
-            <DetailItem> {t("Focused on Internet of Things")}</DetailItem>
-            <SchoolIcon
-              src={UBEngineering}
-              style={{
-                backgroundColor: lightMode ? "rgb(245 245 245)" : iconColor,
-              }}
-            ></SchoolIcon>
-          </DetailItems>
-        </Detail>
-      </Master>
+      {/* Courses Scrolling Section */}
+      <section className="mb-16">
+        <Card className="overflow-hidden">
+          <CardHeader>
+            <CardTitle className="text-xl">
+              {t("Relevant Coursework")}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div
+                className="flex animate-flowing whitespace-nowrap"
+              >
+                {courses1.map((course, index) => (
+                  <Badge key={index} variant="secondary" className="mx-2 text-sm">
+                    {course}
+                  </Badge>
+                ))}
+              </div>
+              <div
+                className="flex animate-flowing2 whitespace-nowrap"
+              >
+                {courses2.map((course, index) => (
+                  <Badge key={index} variant="secondary" className="mx-2 text-sm">
+                    {course}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
 
-      <Bachelor
-        style={{
-          backgroundColor: lightMode ? "rgb(245 245 245)" : "#161d25",
-          color: lightMode ? "black" : "white",
-        }}
-      >
-        <School> {t("North China University of Technology")}</School>
+      {/* Education Timeline */}
+      <section className="space-y-8">
+        {/* Master's Degree */}
+        <Card className="overflow-hidden transition-shadow hover:shadow-lg">
+          <div className="md:flex">
+            <div className="md:w-2/5">
+              <div className="h-48 md:h-full overflow-hidden">
+                <img
+                  src={UB}
+                  alt="University at Buffalo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
-        <Detail>
-          <SchoolImg src={NCUT}></SchoolImg>
-          <DetailItems>
-            <DetailItem>
-              {t("Bachelor of Engineering in Mechanical Automation")}
-            </DetailItem>
-            <DetailItem>{t("Focused on Robotic Control")}</DetailItem>
-            <SchoolIcon
-              src={NCUTIcon}
-              style={{
-                backgroundColor: lightMode ? "rgb(245 245 245)" : iconColor,
-              }}
-            ></SchoolIcon>
-          </DetailItems>
-        </Detail>
-      </Bachelor>
-    </Container>
+            <div className="md:w-3/5 p-6">
+              <div className="flex flex-col h-full">
+                <div>
+                  <Badge className="mb-2">2022 - 2024</Badge>
+                  <h2 className="text-2xl font-bold mb-2">
+                    {t("State University of New York at Buffalo")}
+                  </h2>
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {t("Master of Science in Computer and Electrical Engineering")}
+                  </h3>
+                </div>
+
+                <div className="flex-grow">
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-start">
+                      <span className="mr-2 text-primary">•</span>
+                      <span>{t("Focused on Internet of Things")}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2 text-primary">•</span>
+                      <span>{t("GPA: 3.7/4.0")}</span>
+                    </li>
+                  </ul>
+
+                  <div className="mt-4">
+                    <img
+                      src={UBEngineering}
+                      alt="UB Engineering"
+                      className="h-16 w-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Bachelor's Degree */}
+        <Card className="overflow-hidden transition-shadow hover:shadow-lg">
+          <div className="md:flex">
+            <div className="md:w-2/5">
+              <div className="h-48 md:h-full overflow-hidden">
+                <img
+                  src={NCUT}
+                  alt="North China University of Technology"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="md:w-3/5 p-6">
+              <div className="flex flex-col h-full">
+                <div>
+                  <Badge className="mb-2">2014 - 2018</Badge>
+                  <h2 className="text-2xl font-bold mb-2">
+                    {t("North China University of Technology")}
+                  </h2>
+                  <h3 className="text-lg font-semibold text-primary mb-4">
+                    {t("Bachelor of Engineering in Mechanical Automation")}
+                  </h3>
+                </div>
+
+                <div className="flex-grow">
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-start">
+                      <span className="mr-2 text-primary">•</span>
+                      <span>{t("Focused on Robotic Control")}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-2 text-primary">•</span>
+                      <span>{t("GPA: 3.5/4.0")}</span>
+                    </li>
+                  </ul>
+
+                  <div className="mt-4">
+                    <img
+                      src={NCUTIcon}
+                      alt="NCUT"
+                      className="h-16 w-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </section>
+    </div>
   );
 };
 

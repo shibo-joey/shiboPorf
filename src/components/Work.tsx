@@ -12,8 +12,9 @@ const Work: React.FC = () => {
             Professional Experience
           </h1>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-            Selected roles and responsibilities. I focus on shipping reliable
-            features, performance improvements, and clean UX.
+            I specialize in driving the architecture and delivery of high-performance, 
+            scalable systems with engineering reliability, 
+            performance and seamless user experiences.
           </p>
         </div>
       </div>

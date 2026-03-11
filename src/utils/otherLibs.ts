@@ -10,7 +10,7 @@ export const otherLibs = [
     rate: 5,
   },
   {
-    name: "styled-Component",
+    name: "shadcn/ui",
     experience: "3 years",
     rate: 5,
   },

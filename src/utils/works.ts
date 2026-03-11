@@ -3,8 +3,20 @@ import yoyotech from "../assets/workImage/yorotech.png";
 import skycatch from "../assets/workImage/SKYCATCH.jpg";
 import nio from "../assets/workImage/nio.webp";
 import goldwind from "../assets/workImage/goldwind.jpg";
+import fortinet from "../assets/workImage/fortinet.webp";
 
 export const workexperiences = [
+    {
+    companyName: "Fortinet",
+    duration: ["06/2025", "Now"],
+    details: [
+      "Built FortiSASE-Sovereign"
+    ],
+    stacks: ["Angular", "Node", "Python"],
+    location: "San Jose, CA",
+    position: "Senior Software Engineer",
+    companyLink: fortinet,
+  },
   {
     companyName: "NIO",
     duration: ["08/2021", "05/2025"],
@@ -31,7 +43,7 @@ export const workexperiences = [
       "Built SDKs, APIs, scripts for international teams across the world to improve user experiences and product efficiency with Go and Python",
     ],
     stacks: ["NextJS", "React", "Vue", "Node", "Go"],
-    location: "Irvine, CA",
+    location: "San Jose, CA",
     position: "Senior Software Engineer",
     companyLink: nio,
   },
