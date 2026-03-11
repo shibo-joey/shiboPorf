@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -51,139 +51,129 @@ const CopyRight = styled("div")<{ lightmode: boolean }>`
   }
 `;
 
-export interface FooterProps {
-  theme: string;
-}
-
-const Footer: React.FC<FooterProps> = ({ theme }) => {
-  const [lightMode, setLightMode] = useState(true);
-  useEffect(() => {
-    if (theme === "light") setLightMode(true);
-    else setLightMode(false);
-  }, [theme]);
-
+const Footer: React.FC = () => {
   return (
     <FooterContainer
-      style={{ backgroundColor: lightMode ? "#111d2c" : "rgb(245 245 245)" }}
+      className="border-t bg-card text-card-foreground"
     >
       <FooterColumns>
-        <FirstRow lightmode={lightMode}>
+        <FirstRow lightmode={false}>
           <FooterSubTitle>Site Link</FooterSubTitle>
-          <StyledNavLink to="/education" lightmode={lightMode}>
+          <StyledNavLink to="/education" lightmode={false}>
             Education
           </StyledNavLink>
-          <StyledNavLink to="/work" lightmode={lightMode}>
+          <StyledNavLink to="/work" lightmode={false}>
             Work Experience
           </StyledNavLink>
-          <StyledNavLink to="/social" lightmode={lightMode}>
+          <StyledNavLink to="/social" lightmode={false}>
             Social Media
           </StyledNavLink>
-          <StyledNavLink to="/skills" lightmode={lightMode}>
+          <StyledNavLink to="/skills" lightmode={false}>
             Skills
           </StyledNavLink>
         </FirstRow>
-        <FirstRow lightmode={lightMode}>
+        <FirstRow lightmode={false}>
           <FooterSubTitle>Social Media</FooterSubTitle>
           <StyledLink
             href="https://www.linkedin.com/in/shibo-yang-912134111/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Linkedin
           </StyledLink>
           <StyledLink
             href="https://github.com/shibo-joey"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Github
           </StyledLink>
           <StyledLink
             href="https://www.instagram.com/joey_shibo_y/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Instagram
           </StyledLink>
         </FirstRow>
-        <FirstRow lightmode={lightMode}>
+        <FirstRow lightmode={false}>
           <FooterSubTitle>Relavent Sites</FooterSubTitle>
           <StyledLink
             href="http://www.ncut.edu.cn/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             North China University of Technology
           </StyledLink>
           <StyledLink
             href="http://www.buffalo.edu/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             SUNY at Buffalo
           </StyledLink>
           <StyledLink
             href="https://skycatch.com/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Skycatch
           </StyledLink>
           <StyledLink
             href="https://www.toyotaconnected.com/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Toyota North America
           </StyledLink>
           <StyledLink
             href="https://yorotek.com/en/home/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             YOROTEK Intelligent Manufacturing Technology
           </StyledLink>
         </FirstRow>
-        <FirstRow lightmode={lightMode}>
+        <FirstRow lightmode={false}>
           <FooterSubTitle>Powered By</FooterSubTitle>
           <StyledLink
             href="https://reactjs.org/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             React
           </StyledLink>
           <StyledLink
             href="https://www.typescriptlang.org/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Typecript
           </StyledLink>
           <StyledLink
             href="https://styled-components.com/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             Styled Component
           </StyledLink>
           <StyledLink
-            href="https://ant.design/"
+            href="https://ui.shadcn.com/"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
-            Ant Design
+            shadcn/ui
           </StyledLink>
           <StyledLink
             href="https://www.npmjs.com/package/i18n"
             target="_blank"
-            lightmode={lightMode}
+            lightmode={false}
           >
             i18n
           </StyledLink>
         </FirstRow>
       </FooterColumns>
-      <CopyRight lightmode={lightMode}>
+      <CopyRight lightmode={false}>
         Copyright || 2025 Design by @SHIBO || All Rights Reserved
       </CopyRight>
     </FooterContainer>

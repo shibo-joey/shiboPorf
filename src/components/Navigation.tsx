@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Menu, Switch, Button } from "antd";
-import {
-  GithubFilled,
-  UsergroupAddOutlined,
-  FireOutlined,
-  BookOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import "antd/dist/antd.css";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {
+  Briefcase,
+  Github,
+  GraduationCap,
+  Moon,
+  Sparkles,
+  Sun,
+  Users,
+} from "lucide-react";
+import { useTheme } from "next-themes";
 
-const StyledMenu = styled(Menu)`
-  height: 60px;
-
-  .ant-menu-item {
-    margin-top: 10px !important;
-    margin-left: 120px !important;
-  }
-  .ant-menu-submenu {
-    margin-left: 60px !important;
-  }
-`;
+import { Button } from "./ui/button";
+import { Switch } from "./ui/switch";
 
 const NavTitle = styled.div`
   margin-left: 120px !important;
@@ -89,14 +81,10 @@ const LanContainer = styled.div`
   }
 `;
 
-export interface NavigationProps {
-  theme: string;
-  changeTheme: () => void;
-}
-
-const Navigation: React.FC<NavigationProps> = ({ theme, changeTheme }) => {
+const Navigation: React.FC = () => {
   const history = useHistory();
   const { t, i18n } = useTranslation();
+  const { resolvedTheme, setTheme } = useTheme();
 
   const [isEnglish, setIsEnglish] = useState(true);
   //clock
@@ -108,19 +96,9 @@ const Navigation: React.FC<NavigationProps> = ({ theme, changeTheme }) => {
   const [currentSecs, setCurrentSecs] = useState<string>("0");
   //**
 
-  //set theme
-  let background;
-  let textColor;
-  let themeText = "Let's go dark";
-  let title = "Welcome to Shibo's page";
-  if (theme === "light") background = "#f5f5f5";
-  else {
-    background = "#161b22";
-    textColor = "#f5f5f5";
-    themeText = "Let's go light";
-    title = "You have a good taste";
-  }
-  //**
+  const isDark = resolvedTheme === "dark";
+  const themeText = isDark ? "Let's go light" : "Let's go dark";
+  const title = isDark ? "You have a good taste" : "Welcome to Shibo's page";
 
   const updateTime = () => {
     const digitConverter = (numString: string) => {
@@ -153,21 +131,43 @@ const Navigation: React.FC<NavigationProps> = ({ theme, changeTheme }) => {
   };
 
   useEffect(() => {
-    setInterval(() => {
+    const id = setInterval(() => {
       updateTime();
     }, 1000);
+    return () => clearInterval(id);
   }, []);
+
+  const navItems = useMemo(
+    () => [
+      { key: "education", label: t("Education"), icon: GraduationCap },
+      { key: "work", label: t("Work experience"), icon: Briefcase },
+      { key: "social", label: t("Social media"), icon: Users },
+      { key: "skills", label: t("Skills"), icon: Sparkles },
+    ],
+    [t]
+  );
 
   return (
     <>
       <div
-        style={{ display: "flex", background: background, color: textColor }}
+        className="flex items-center border-b bg-background text-foreground"
       >
         <NavTitle onClick={() => history.push("/")}>{t(title)}</NavTitle>
-        <StyledSwitch onChange={() => changeTheme()} />
+        <div className="mt-[60px] ml-[60px] flex items-center gap-2">
+          <Sun className="hidden text-muted-foreground sm:block" size={18} />
+          <StyledSwitch
+            checked={isDark}
+            onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+          />
+          <Moon className="hidden text-muted-foreground sm:block" size={18} />
+        </div>
         <StyledSpan>{t(themeText)}</StyledSpan>
-        <StyledButton icon={<GithubFilled />}>
-          {t("Sorry, nothing there lol")}
+        <StyledButton
+          variant="secondary"
+          onClick={() => window.open("https://github.com/shibo-joey", "_blank")}
+        >
+          <Github />
+          {t("Github")}
         </StyledButton>
         <div style={{ display: "flex", marginLeft: "30px" }}>
           <Timer>{`${currentYear}/${currentMonth}/${currentDay}`}</Timer>
@@ -175,36 +175,36 @@ const Navigation: React.FC<NavigationProps> = ({ theme, changeTheme }) => {
           <Second>{currentSecs}</Second>
         </div>
         <LanContainer>
-          <StyledButton onClick={() => handleLang("en")} danger={isEnglish}>
+          <StyledButton
+            variant={isEnglish ? "default" : "outline"}
+            onClick={() => handleLang("en")}
+          >
             EN
           </StyledButton>
-          <StyledButton onClick={() => handleLang("zh")} danger={!isEnglish}>
+          <StyledButton
+            variant={!isEnglish ? "default" : "outline"}
+            onClick={() => handleLang("zh")}
+          >
             CHI
           </StyledButton>
         </LanContainer>
       </div>
 
-      <StyledMenu
-        mode="horizontal"
-        theme={theme}
-        onClick={(event) => {
-          history.push(`./${event.key}`);
-        }}
-      >
-        <Menu.Item key="education" icon={<BookOutlined />}>
-          {t("Education")}
-        </Menu.Item>
-        <Menu.Item key="work" icon={<FireOutlined />}>
-          {t("Work experience")}
-        </Menu.Item>
-        <Menu.Item key="social" icon={<UsergroupAddOutlined />}>
-          {t("Social media")}
-        </Menu.Item>
-
-        <Menu.Item key="skills" icon={<SettingOutlined />}>
-          {t("Skills")}
-        </Menu.Item>
-      </StyledMenu>
+      <div>
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          return (
+            <Button
+              key={item.key}
+              variant="ghost"
+              onClick={() => history.push(`./${item.key}`)}
+            >
+              <Icon />
+              {item.label}
+            </Button>
+          );
+        })}
+      </div>
     </>
   );
 };

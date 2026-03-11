@@ -1,29 +1,43 @@
 import React from "react";
-import { Rate } from "antd";
-import styled from "styled-components";
+import { Star } from "lucide-react";
 
-const Name = styled.h3``;
-const Exp = styled.div``;
+import { cn } from "../../lib/utils";
+import { Card, CardContent } from "../ui/card";
 
 export interface SkillCardProps {
   rate: number;
   years: string;
   name: string;
-  theme: string;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ rate, name, years, theme }) => {
+const SkillCard: React.FC<SkillCardProps> = ({ rate, name, years }) => {
   const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1);
   return (
-    <div>
-      <Name style={{ color: theme === "light" ? "black" : "white" }}>
-        {nameCapitalized}
-      </Name>
-      <Exp>
-        <span style={{ fontWeight: "bold" }}>{years}</span> of experience
-      </Exp>
-      <Rate disabled defaultValue={rate} />
-    </div>
+    <Card>
+      <CardContent className="p-4">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <div className="font-semibold">{nameCapitalized}</div>
+            <div className="mt-1 text-xs text-muted-foreground">
+              <span className="font-medium text-foreground">{years}</span> of experience
+            </div>
+          </div>
+        </div>
+        <div className="mt-3 flex items-center gap-1">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star
+              key={i}
+              className={cn(
+                "h-4 w-4",
+                i < rate
+                  ? "fill-yellow-400 text-yellow-400"
+                  : "text-muted-foreground"
+              )}
+            />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

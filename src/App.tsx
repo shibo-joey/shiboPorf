@@ -1,46 +1,36 @@
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import { Button } from "antd";
-import { language } from "./utils/language";
 import Education from "./components/Education";
 import Work from "./components/Work";
 import Social from "./components/Social";
 import Skills from "./components/Skills";
 import Navigation from "./components/Navigation";
-import { useState } from "react";
 import Footer from "./components/Footer";
 import MainPage from "./components/MainPage";
 
 function App() {
-  const [theme, setTheme] = useState("light");
-
-  const changeTheme = () => {
-    if (theme === "light") setTheme("dark");
-    if (theme === "dark") setTheme("light");
-  };
   return (
-    <div style={{ background: theme === "light" ? "white" : "#0d1117" }}>
-      <Navigation theme={theme} changeTheme={changeTheme} />
+    <div className="min-h-screen bg-background text-foreground">
+      <Navigation />
       <Switch>
         <Route
           exact
           path="/education"
-          component={() => <Education theme={theme} />}
+          component={() => <Education />}
         />
-        <Route exact path="/work" component={() => <Work theme={theme} />} />
+        <Route exact path="/work" component={() => <Work />} />
         <Route
           exact
           path="/social"
-          component={() => <Social theme={theme} />}
+          component={() => <Social />}
         />
         <Route
           exact
           path="/skills"
-          component={() => <Skills theme={theme} />}
+          component={() => <Skills />}
         />
-        <Route path="/" component={() => <MainPage theme={theme} />} />
+        <Route path="/" component={() => <MainPage />} />
       </Switch>
-      <Footer theme={theme} />
+      <Footer />
     </div>
   );
 }

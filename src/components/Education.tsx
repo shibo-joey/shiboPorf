@@ -123,19 +123,25 @@ const CourseItem = styled.span`
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 `;
 
-export interface EducationProps {
-  theme: string;
-}
-
-const Education: React.FC<EducationProps> = ({ theme }) => {
+const Education: React.FC = () => {
   const [lightMode, setLightMode] = useState(true);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const iconColor = "rgb(175 175 175)";
 
   useEffect(() => {
-    if (theme === "light") setLightMode(true);
-    else setLightMode(false);
-  }, [theme]);
+    const isDark = document.documentElement.classList.contains("dark");
+    setLightMode(!isDark);
+
+    const observer = new MutationObserver(() => {
+      const nowDark = document.documentElement.classList.contains("dark");
+      setLightMode(!nowDark);
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Container>

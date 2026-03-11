@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
-const Container = styled.div`
-  margin-left: 30px;
-  margin-top: 30px;
-  min-height: 830px;
-  text-align: center;
-`;
+import { Button } from "./ui/button";
 
 const Title = styled.h1`
   margin-top: 50px;
@@ -18,27 +14,83 @@ const Detail = styled.h4`
   color: rgb(95, 99, 104);
 `;
 
-export interface MainPageProps {
-  theme: string;
-}
-
-const MainPage: React.FC<MainPageProps> = ({ theme }) => {
+const MainPage: React.FC = () => {
   return (
-    <Container>
-      <Title style={{ color: theme === "light" ? "black " : "white " }}>
-        {"A "}
-        <span style={{ color: " #34a853" }}>Very </span>
-        <span style={{ color: " #4285f4" }}>
-          {theme === "light" ? "Interesting " : "Boring "}
-        </span>
-        <span style={{ color: "#ea4335" }}>Person</span>
-      </Title>
-      <Detail></Detail>
-      <img
-        src="https://media-exp1.licdn.com/dms/image/C4D03AQHY3LnUAL5jAg/profile-displayphoto-shrink_200_200/0/1584083683092?e=2147483647&v=beta&t=4pKBZOHZzaDBLSQSE0IOx8EDdY4oh61mzlaR_M52L6Q"
-        style={{ display: "none" }}
-      />
-    </Container>
+    <div className="container py-14">
+      <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <p className="text-sm font-medium text-muted-foreground">
+            Senior Software Engineer
+          </p>
+          <Title className="mt-4 text-balance font-semibold tracking-tight">
+            Shibo Yang builds fast, reliable web products.
+          </Title>
+          <Detail className="mt-6 max-w-2xl text-pretty">
+            I specialize in modern React/TypeScript stacks, cloud-native
+            systems, and clean UI engineering. Here you’ll find my experience,
+            skills, and where to reach me.
+          </Detail>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Button onClick={() => (window.location.hash = "#/work")}>
+              View experience <ArrowRight />
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/shibo-yang-912134111/",
+                  "_blank"
+                )
+              }
+            >
+              <Linkedin />
+              LinkedIn
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => window.open("https://github.com/shibo-joey", "_blank")}
+            >
+              <Github />
+              GitHub
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => (window.location.href = "mailto:shibo@example.com")}
+            >
+              <Mail />
+              Email
+            </Button>
+          </div>
+        </div>
+
+        <div className="rounded-xl border bg-card p-6 text-card-foreground shadow-sm">
+          <div className="text-sm font-medium text-muted-foreground">
+            Snapshot
+          </div>
+          <div className="mt-4 grid gap-4">
+            <div>
+              <div className="text-2xl font-semibold">Full‑stack</div>
+              <div className="text-sm text-muted-foreground">
+                React • TypeScript • Node • Cloud
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-semibold">UI focused</div>
+              <div className="text-sm text-muted-foreground">
+                Design systems • Accessibility • Performance
+              </div>
+            </div>
+            <div>
+              <div className="text-2xl font-semibold">Team ready</div>
+              <div className="text-sm text-muted-foreground">
+                Mentoring • Ownership • Delivery
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
