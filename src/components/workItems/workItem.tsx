@@ -130,14 +130,16 @@ const WorkItem: React.FC<WorkItemProps> = ({ workoBJ, theme, companyLink }) => {
             <StyledSlider defaultValue={100} marks={marks}></StyledSlider>
           </TimeRange>
           <Location>{workoBJ.location}</Location>
-          <Stacks>
-            Other Stacks:
-            <ItemsContainer style={{ color: "black" }}>
-              {workoBJ.stacks.map((item: string) => (
-                <StackItem key={item}>{item}</StackItem>
-              ))}
-            </ItemsContainer>
-          </Stacks>
+          {workoBJ.stacks && workoBJ.stacks.length > 0 && (
+            <Stacks>
+              Other Stacks:
+              <ItemsContainer style={{ color: "black" }}>
+                {workoBJ.stacks.map((item: string) => (
+                  <StackItem key={item}>{item}</StackItem>
+                ))}
+              </ItemsContainer>
+            </Stacks>
+          )}
         </RightDetail>
         <Details>
           <Responsibility>Responsibility</Responsibility>

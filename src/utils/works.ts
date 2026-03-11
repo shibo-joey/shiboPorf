@@ -2,11 +2,12 @@ import toyotaImg from "../assets/workImage/toyota.jpg";
 import yoyotech from "../assets/workImage/yorotech.png";
 import skycatch from "../assets/workImage/SKYCATCH.jpg";
 import nio from "../assets/workImage/nio.webp";
+import goldwind from "../assets/workImage/goldwind.jpg";
 
 export const workexperiences = [
   {
     companyName: "NIO",
-    duration: ["08/2021", "Current"],
+    duration: ["08/2021", "05/2025"],
     details: [
       "Architected and developed many scalable, multilingual websites from the ground up, supporting deployment and marketing across over 10 countries with Next.js and Node.js.",
       {
@@ -117,37 +118,14 @@ export const workexperiences = [
     position: "Software Engineer Intern",
     companyLink: skycatch,
   },
-  {
-    companyName: "YOROTEK Intelligent Manufacturing Technology",
-    duration: ["08/2014", "02/2018", "3 years 6 mos"],
+    {
+    companyName: "Goldwind",
+    duration: ["07/2016", "09/2016", "3 mos"],
     details: [
-      "Developed fully functional responsive module based on Business Requirements using React-Redux, Node.js, Express.js, HTML5, CSS3, Bootstrap 3, SASS, JavaScript, jQuery, jQuery plug in, MongoDB.",
-      "Worked on Angular7 concepts such as routes, components, directives, services, lifecycle hooks, decorators and forms module.",
-      "Worked on Lifecycle methods, State, Props, and Events to create interactive and Stateful react components. Implemented Initial setup and component migration to Redux.",
-      "Developed various screens for the front end using React.js and used various predefined components from NPM and Redux library.",
-      "Worked on debugging ECMA Script 6 and HTML code with Firefox Firebug and Google chrome JavaScript debugger.",
-      "Worked with authorization security configurations using Node.js and JSON web tokens for authentication.",
-      "Experienced in working with Babel, Gulp, NPM, NPM scripts, and Webpack in application build and deployment processes.",
-    ],
-    stacks: [
-      "React.js",
-      "Redux",
-      "AJAX",
-      "JSON",
-      "JavaScript",
-      "Babel",
-      "NPM",
-      "Html5",
-      "SASS",
-      "Node.js",
-      "JWT",
-      "Jest",
-      "JIRA",
-      "GitHub",
-      "TDD",
+      "Remaining Useful Life Prediction of Aluminum Electrolytic Capacitors Used in Wind Turbines - 2017 IEEE, 2017ICSREE · May 10, 2017",
     ],
     location: "Beijing, China",
-    position: "Full Stack Engineer",
-    companyLink: yoyotech,
-  },
+    position: "Research and Development Intern",
+    companyLink: goldwind,
+  }
 ];
