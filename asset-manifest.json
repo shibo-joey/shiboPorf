@@ -1,33 +1,25 @@
 {
   "files": {
-    "main.css": "https://shibo-joey.github.io/shiboPorf/static/css/main.7d180cbf.chunk.css",
-    "main.js": "https://shibo-joey.github.io/shiboPorf/static/js/main.fec14e3f.chunk.js",
-    "main.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/main.fec14e3f.chunk.js.map",
-    "runtime-main.js": "https://shibo-joey.github.io/shiboPorf/static/js/runtime-main.5d01774a.js",
-    "runtime-main.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/runtime-main.5d01774a.js.map",
-    "static/css/2.a9ef530b.chunk.css": "https://shibo-joey.github.io/shiboPorf/static/css/2.a9ef530b.chunk.css",
-    "static/js/2.8bfeb475.chunk.js": "https://shibo-joey.github.io/shiboPorf/static/js/2.8bfeb475.chunk.js",
-    "static/js/2.8bfeb475.chunk.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/2.8bfeb475.chunk.js.map",
-    "static/js/3.a0ee09af.chunk.js": "https://shibo-joey.github.io/shiboPorf/static/js/3.a0ee09af.chunk.js",
-    "static/js/3.a0ee09af.chunk.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/3.a0ee09af.chunk.js.map",
+    "main.css": "https://shibo-joey.github.io/shiboPorf/static/css/main.b56dcdb6.css",
+    "main.js": "https://shibo-joey.github.io/shiboPorf/static/js/main.4cfcee0f.js",
+    "static/js/453.64cfed51.chunk.js": "https://shibo-joey.github.io/shiboPorf/static/js/453.64cfed51.chunk.js",
+    "static/media/SKYCATCH.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/SKYCATCH.5488c2b1416267ec778e.jpg",
+    "static/media/toyota.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/toyota.5e29fd4c65c982e777c3.jpg",
+    "static/media/yorotech.png": "https://shibo-joey.github.io/shiboPorf/static/media/yorotech.05d958e44081d249f67a.png",
+    "static/media/fortinet.webp": "https://shibo-joey.github.io/shiboPorf/static/media/fortinet.94a4bcf2806868b22ecb.webp",
+    "static/media/nio.webp": "https://shibo-joey.github.io/shiboPorf/static/media/nio.1e17405bbf78257917dd.webp",
+    "static/media/NCUTIcon.png": "https://shibo-joey.github.io/shiboPorf/static/media/NCUTIcon.97fd513e5477e7dcd7ec.png",
+    "static/media/goldwind.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/goldwind.373b9a7680de7a625581.jpg",
+    "static/media/UB.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/UB.c5cef5698262de4f24eb.jpg",
+    "static/media/NCUT.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/NCUT.ad87c958d6df77d9929d.jpg",
+    "static/media/UBengineering.png": "https://shibo-joey.github.io/shiboPorf/static/media/UBengineering.14f1580ee40b0c0ea35c.png",
     "index.html": "https://shibo-joey.github.io/shiboPorf/index.html",
-    "static/css/2.a9ef530b.chunk.css.map": "https://shibo-joey.github.io/shiboPorf/static/css/2.a9ef530b.chunk.css.map",
-    "static/css/main.7d180cbf.chunk.css.map": "https://shibo-joey.github.io/shiboPorf/static/css/main.7d180cbf.chunk.css.map",
-    "static/js/2.8bfeb475.chunk.js.LICENSE.txt": "https://shibo-joey.github.io/shiboPorf/static/js/2.8bfeb475.chunk.js.LICENSE.txt",
-    "static/media/NCUT.ad87c958.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/NCUT.ad87c958.jpg",
-    "static/media/NCUTIcon.97fd513e.png": "https://shibo-joey.github.io/shiboPorf/static/media/NCUTIcon.97fd513e.png",
-    "static/media/SKYCATCH.5488c2b1.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/SKYCATCH.5488c2b1.jpg",
-    "static/media/UB.c5cef569.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/UB.c5cef569.jpg",
-    "static/media/UBengineering.14f1580e.png": "https://shibo-joey.github.io/shiboPorf/static/media/UBengineering.14f1580e.png",
-    "static/media/nio.1e17405b.webp": "https://shibo-joey.github.io/shiboPorf/static/media/nio.1e17405b.webp",
-    "static/media/toyota.5e29fd4c.jpg": "https://shibo-joey.github.io/shiboPorf/static/media/toyota.5e29fd4c.jpg",
-    "static/media/yorotech.05d958e4.png": "https://shibo-joey.github.io/shiboPorf/static/media/yorotech.05d958e4.png"
+    "main.b56dcdb6.css.map": "https://shibo-joey.github.io/shiboPorf/static/css/main.b56dcdb6.css.map",
+    "main.4cfcee0f.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/main.4cfcee0f.js.map",
+    "453.64cfed51.chunk.js.map": "https://shibo-joey.github.io/shiboPorf/static/js/453.64cfed51.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.5d01774a.js",
-    "static/css/2.a9ef530b.chunk.css",
-    "static/js/2.8bfeb475.chunk.js",
-    "static/css/main.7d180cbf.chunk.css",
-    "static/js/main.fec14e3f.chunk.js"
+    "static/css/main.b56dcdb6.css",
+    "static/js/main.4cfcee0f.js"
   ]
 }
