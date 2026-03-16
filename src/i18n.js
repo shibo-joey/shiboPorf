@@ -12,7 +12,7 @@ const resources = {
       Skills: "Skills",
       "Sorry, nothing there lol": "Sorry, nothing there lol",
       "You have a good taste": "You have a good taste",
-      "Welcome to Shibo's page": "Welcome to Shibo's page",
+      "Shibo. Engineering for the modern web": "Shibo. Engineering for the modern web",
       "Let's go dark": "Let's go dark",
       "Let's go light": "Let's go light",
       "State University of New York at Buffalo":
@@ -35,7 +35,7 @@ const resources = {
       Skills: "技术能力",
       "Sorry, nothing there lol": "此地无银三百两",
       "You have a good taste": "Dark mode, 有品位",
-      "Welcome to Shibo's page": "欢迎来到士博的老窝",
+      "Shibo. Engineering for the modern web": "欢迎来到士博的老窝",
       "Let's go dark": "天亮了",
       "Let's go light": "天黑了",
       "State University of New York at Buffalo": "纽约州立大学 布法罗分校",

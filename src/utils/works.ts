@@ -12,7 +12,7 @@ export const workexperiences = [
     details: [
       "Built FortiSASE-Sovereign"
     ],
-    stacks: ["Angular", "Node", "Python"],
+    stacks: ["Angular", "NextJS", "Node", "Python"],
     location: "San Jose, CA",
     position: "Senior Software Engineer",
     companyLink: fortinet,

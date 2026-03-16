@@ -1,22 +1,27 @@
 export const frameworks = [
   {
+    name: "next.js",
+    experience: "7 years",
+    rate: 5,
+  },
+  {
     name: "react.js",
-    experience: "6 years",
+    experience: "7 years",
     rate: 5,
   },
   {
     name: "angular.js",
-    experience: "5 years",
+    experience: "7 years",
     rate: 4,
   },
   {
     name: "vue.js",
-    experience: "2 years",
+    experience: "3 years",
     rate: 3,
   },
   {
     name: "node.js",
-    experience: "5 years",
+    experience: "7 years",
     rate: 4,
   },
   {

@@ -9,27 +9,29 @@ import MainPage from "./components/MainPage";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navigation />
-      <Switch>
-        <Route
-          exact
-          path="/education"
-          component={() => <Education />}
-        />
-        <Route exact path="/work" component={() => <Work />} />
-        <Route
-          exact
-          path="/social"
-          component={() => <Social />}
-        />
-        <Route
-          exact
-          path="/skills"
-          component={() => <Skills />}
-        />
-        <Route path="/" component={() => <MainPage />} />
-      </Switch>
+      <main className="flex-grow">
+        <Switch>
+          <Route
+            exact
+            path="/education"
+            component={() => <Education />}
+          />
+          <Route exact path="/work" component={() => <Work />} />
+          <Route
+            exact
+            path="/social"
+            component={() => <Social />}
+          />
+          <Route
+            exact
+            path="/skills"
+            component={() => <Skills />}
+          />
+          <Route path="/" component={() => <MainPage />} />
+        </Switch>
+      </main>
       <Footer />
     </div>
   );

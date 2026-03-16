@@ -5,6 +5,7 @@ import {
   Briefcase,
   Github,
   GraduationCap,
+  Menu,
   Moon,
   Sparkles,
   Sun,
@@ -14,6 +15,14 @@ import { useTheme } from "next-themes";
 
 import { Button } from "./ui/button";
 import { Switch } from "./ui/switch";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "./ui/sheet";
 
 const Navigation: React.FC = () => {
   const history = useHistory();
@@ -30,7 +39,7 @@ const Navigation: React.FC = () => {
 
   const isDark = resolvedTheme === "dark";
   const themeText = isDark ? "Light" : "Dark";
-  const title = isDark ? "You have a good taste" : "Welcome to Shibo's page";
+  const title = isDark ? "You have a good taste" : "Shibo. Engineering for the modern web";
 
   const updateTime = () => {
     const digitConverter = (numString: string) => {
@@ -91,7 +100,7 @@ const Navigation: React.FC = () => {
         {/* Top Navigation Bar */}
         <div className="flex items-center justify-between py-4">
           <div
-            className="text-xl font-bold cursor-pointer hover:text-primary transition-colors"
+            className="text-xl font-bold cursor-pointer hover:text-primary transition-colors hidden md:block"
             onClick={() => history.push("/")}
           >
             {t(title)}
@@ -147,23 +156,57 @@ const Navigation: React.FC = () => {
                 {currentHour}:{currentMins}:{currentSecs}
               </div>
             </div>
+
+            {/* Mobile Menu Button */}
+            <Sheet>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px]">
+                <SheetHeader>
+                  <SheetTitle>{t("Navigation")}</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col gap-2 mt-6">
+                  {navItems.map((item) => {
+                    const Icon = item.icon;
+                    const isActive = currentPage === item.key;
+                    return (
+                      <SheetClose key={item.key} asChild>
+                        <Button
+                          variant="ghost"
+                          className={`justify-start gap-2 w-full ${
+                            isActive ? "text-primary bg-primary/10" : ""
+                          }`}
+                          onClick={() => history.push(`./${item.key}`)}
+                        >
+                          <Icon className="h-4 w-4" />
+                          <span>{item.label}</span>
+                        </Button>
+                      </SheetClose>
+                    );
+                  })}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
 
-        {/* Main Navigation Links */}
-        <div className="flex overflow-x-auto py-2 -mx-2 px-2">
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex overflow-x-auto py-2 -mx-2 px-2">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = currentPage === item.key;
             return (
               <Button
                 key={item.key}
-                variant={isActive ? "outline" : "ghost"}
-                className={isActive ? "border-primary" : "flex-shrink-0 gap-2 px-4 py-2 h-auto"}
+                variant={isActive ? "secondary" : "ghost"}
+                className="flex-shrink-0 gap-2 px-4 py-2 h-auto"
                 onClick={() => history.push(`./${item.key}`)}
               >
-                <Icon className={isActive ? "h-4 w-4 text-primary" : "h-4 w-4"} />
-                <span className={isActive ? "text-primary" : ""}>{item.label}</span>
+                <Icon className="h-4 w-4" />
+                <span>{item.label}</span>
               </Button>
             );
           })}
