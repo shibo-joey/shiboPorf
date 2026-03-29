@@ -2,7 +2,7 @@ import React from "react";
 import { Building2, MapPin, Timer } from "lucide-react";
 
 import { Badge } from "../ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Card, CardContent } from "../ui/card";
 
 export interface WorkItemProps {
   workoBJ: any;
@@ -11,16 +11,17 @@ export interface WorkItemProps {
 
 const WorkItem: React.FC<WorkItemProps> = ({ workoBJ, companyLink }) => {
   return (
-    <Card className="overflow-hidden">
-      <div className="grid gap-0 lg:grid-cols-[360px_1fr]">
-        <div className="border-b bg-muted/30 p-6 lg:border-b-0 lg:border-r">
-          <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-lg border bg-background">
-              <Building2 className="text-muted-foreground" size={18} />
+    <Card className="group overflow-hidden rounded-3xl border-border/50 bg-card backdrop-blur-sm transition-all duration-500 hover:shadow-xl">
+      <div className="grid gap-0 md:grid-cols-[280px_1fr]">
+        {/* Sidebar Section - Company Info */}
+        <div className="border-b md:border-b-0 md:border-r border-border/50 bg-gradient-to-br from-secondary/40 to-secondary/10 p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex size-11 items-center justify-center rounded-xl border bg-background/80 shadow-sm">
+              <Building2 className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <div className="text-sm text-muted-foreground">Company</div>
-              <div className="font-semibold">{workoBJ.companyName}</div>
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Company</div>
+              <div className="font-semibold tracking-tight text-base">{workoBJ.companyName}</div>
             </div>
           </div>
 
@@ -28,51 +29,79 @@ const WorkItem: React.FC<WorkItemProps> = ({ workoBJ, companyLink }) => {
             <img
               src={companyLink}
               alt=""
-              className="mt-6 hidden w-full rounded-lg border object-cover shadow-sm lg:block"
+              loading="lazy"
+              className="mt-4 hidden w-full rounded-xl border object-cover shadow-sm transition-transform duration-500 group-hover:scale-105 md:block"
             />
           ) : null}
 
-          <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Timer size={16} />
-              <span className="font-medium text-foreground">
-                {workoBJ.duration?.[0]} — {workoBJ.duration?.[1]}
-              </span>
+          <div className="mt-6 space-y-4 text-sm">
+            <div className="flex items-start gap-3">
+              <div className="flex size-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 mt-0.5">
+                <Timer size={15} className="text-primary" />
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground mb-0.5">Duration</div>
+                <div className="font-medium">
+                  {workoBJ.duration?.[0]} — {workoBJ.duration?.[1]}
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin size={16} />
-              <span>{workoBJ.location}</span>
+            <div className="flex items-start gap-3">
+              <div className="flex size-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 mt-0.5">
+                <MapPin size={15} className="text-primary" />
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground mb-0.5">Location</div>
+                <div className="text-muted-foreground">{workoBJ.location}</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <CardHeader className="pb-4">
-            <CardTitle className="text-xl">
+        {/* Content Section - Position & Details */}
+        <div className="p-8">
+          {/* Position Title */}
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold tracking-tight text-foreground">
               {workoBJ.position}
-            </CardTitle>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {(workoBJ.stacks ?? []).slice(0, 12).map((s: string) => (
-                <Badge key={s} variant="muted">
-                  {s}
-                </Badge>
-              ))}
-            </div>
-          </CardHeader>
+            </h3>
+          </div>
 
-          <CardContent className="space-y-3">
-            <div className="text-sm font-medium">Key responsibilities</div>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {(workoBJ.details ?? []).map((item: any, idx: number) => {
+          {/* Tech Stack Badges */}
+          {workoBJ.stacks && workoBJ.stacks.length > 0 && (
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-2">
+                {workoBJ.stacks.slice(0, 10).map((s: string) => (
+                  <Badge
+                    key={s}
+                    variant="secondary"
+                    className="rounded-full px-3 py-1 text-xs font-medium transition-all hover:bg-primary/10 hover:text-primary hover:scale-105"
+                  >
+                    {s}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Responsibilities */}
+          <CardContent className="p-0">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+              Responsibilities
+            </div>
+            <ul className="space-y-4">
+              {workoBJ.details?.map((item: any, idx: number) => {
                 const html = typeof item === "string" ? item : item?.sub;
                 return (
                   <li
                     key={`${workoBJ.companyName}-${idx}`}
-                    className="relative pl-4"
+                    className="flex items-start gap-3"
                   >
-                    <span className="absolute left-0 top-[0.6em] size-1.5 -translate-y-1/2 rounded-full bg-muted-foreground/50" />
+                    <span className="mt-2 flex h-2 w-2 flex-shrink-0 items-center justify-center">
+                      <span className="h-2 w-2 rounded-full bg-primary/60" />
+                    </span>
                     <span
-                      className="text-foreground/90"
+                      className="text-base leading-relaxed text-foreground/90"
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
                   </li>

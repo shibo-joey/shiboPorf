@@ -9,9 +9,9 @@ import MainPage from "./components/MainPage";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
       <Navigation />
-      <main className="flex-grow">
+      <main className="flex-grow animate-fade-in">
         <Switch>
           <Route
             exact

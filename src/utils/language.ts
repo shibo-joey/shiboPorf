@@ -1,17 +1,17 @@
 export const language = [
   {
     name: "javascript",
-    experience: "6 years",
+    experience: "7 years",
     rate: 5,
   },
   {
     name: "typescript",
-    experience: "5 years",
+    experience: "7 years",
     rate: 5,
   },
   {
     name: "html/css",
-    experience: "5 years",
+    experience: "7 years",
     rate: 5,
   },
   {
@@ -21,17 +21,17 @@ export const language = [
   },
   {
     name: "C++",
-    experience: "5 years",
-    rate: 5,
+    experience: "2 years",
+    rate: 3,
   },
   {
     name: "C",
-    experience: "5 years",
+    experience: "2 years",
     rate: 3,
   },
   {
     name: "java",
-    experience: "3 years",
+    experience: "2 years",
     rate: 3,
   },
   {

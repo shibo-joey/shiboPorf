@@ -12,17 +12,17 @@ export const frameworks = [
   {
     name: "angular.js",
     experience: "7 years",
-    rate: 4,
+    rate: 5,
   },
   {
     name: "vue.js",
     experience: "3 years",
-    rate: 3,
+    rate: 5,
   },
   {
     name: "node.js",
     experience: "7 years",
-    rate: 4,
+    rate: 5,
   },
   {
     name: "react-native",

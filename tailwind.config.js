@@ -6,7 +6,12 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        padding: "1.25rem",
+        padding: {
+          DEFAULT: "1rem",
+          sm: "1.5rem",
+          md: "2rem",
+          lg: "2.5rem",
+        },
         screens: {
           "2xl": "1200px",
         },
@@ -15,6 +20,21 @@ module.exports = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+      },
+      fontFamily: {
+        sans: [
+          "Geist",
+          "Satoshi",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "sans-serif",
+        ],
+        mono: ["Geist Mono", "JetBrains Mono", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,8 +71,35 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      boxShadow: {
+        "2xl-soft": "0 25px 50px -12px hsl(var(--primary) / 0.1)",
+        "inner-premium": "inset 0 1px 0 0 hsl(var(--background) / 0.1)",
+      },
+      keyframes: {
+        "shimmer": {
+          "0%": { backgroundPosition: "-1000px 0" },
+          "100%": { backgroundPosition: "1000px 0" },
+        },
+        "pulse-soft": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
+        },
+        "scale-in": {
+          from: { opacity: "0", transform: "scale(0.95)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 2s infinite linear",
+        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
+        "scale-in": "scale-in 0.3s ease-out forwards",
+        float: "float 3s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
 };
-

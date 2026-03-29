@@ -6,13 +6,17 @@ import goldwind from "../assets/workImage/goldwind.jpg";
 import fortinet from "../assets/workImage/fortinet.webp";
 
 export const workexperiences = [
-    {
+  {
     companyName: "Fortinet",
     duration: ["06/2025", "Now"],
     details: [
-      "Built FortiSASE-Sovereign"
+      "Led frontend architecture for a 0→1 Sovereign SASE platform, owning the control-plane experience for region-isolated deployments and compliance-critical workflows across multiple jurisdictions.",
+      "Designed and built advanced UI systems for policy management, tenant isolation, and region-aware configuration, ensuring strict data residency and compliance constraints are correctly enforced at the interaction layer.",
+      "Developed scalable frontend architecture (Angular/React) supporting multi-tenant, multi-region environments with dynamic configuration, fine-grained access control, and extensible feature modules.",
+      "Architected an internal AI knowledge platform (RAG) integrating structured sources (UI component libraries) and unstructured data (Markdown, PDFs, docs), significantly improving developer productivity and information retrieval accuracy. Implemented embedding pipelines using self hosted BAAI/bge-m3 and reranking via bge-reranker-v2-m3.",
+      "Built developer-facing AI tooling ecosystem, including GitLab AI code review, offline codebase analysis, and an MCP-based agent framework with reusable skills, enabling seamless IDE integration and automated workflows."
     ],
-    stacks: ["Angular", "NextJS", "Node", "Python"],
+    stacks: ["Angular", "React", "NextJS", "Node", "Python"],
     location: "San Jose, CA",
     position: "Senior Software Engineer",
     companyLink: fortinet,
@@ -130,7 +134,7 @@ export const workexperiences = [
     position: "Software Engineer Intern",
     companyLink: skycatch,
   },
-    {
+  {
     companyName: "Goldwind",
     duration: ["07/2016", "09/2016", "3 mos"],
     details: [

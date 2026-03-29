@@ -5,74 +5,112 @@ import { frameworks } from "./../utils/frameworks";
 import { testLib } from "./../utils/test";
 import { otherLibs } from "./../utils/otherLibs";
 import { otherSkills } from "../utils/otherSkills";
+import { Code2, Boxes, TestTube, Wrench } from "lucide-react";
 
-export interface SkillsProps {
-}
+const Skills: React.FC = () => {
+  const skillCategories = [
+    {
+      title: "Languages",
+      icon: Code2,
+      data: language,
+    },
+    {
+      title: "Frameworks",
+      icon: Boxes,
+      data: frameworks,
+    },
+    {
+      title: "Testing",
+      icon: TestTube,
+      data: testLib,
+    },
+    {
+      title: "Libraries",
+      icon: Wrench,
+      data: otherLibs,
+    },
+  ];
 
-const Skills: React.FC<SkillsProps> = () => {
   return (
-    <div className="container py-12">
-      <h1 className="text-3xl font-semibold tracking-tight">Skills</h1>
-      <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-        A quick snapshot of languages, frameworks, and tools I use regularly.
-      </p>
-
-      <h2 className="mt-10 text-lg font-semibold">Languages</h2>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {language.map((l) => (
-          <SkillCard
-            years={l.experience}
-            name={l.name}
-            rate={l.rate}
-          />
-        ))}
-      </div>
-      {/* /////////////////////////////////////////////////////////////// */}
-      <h2 className="mt-12 text-lg font-semibold">Frameworks</h2>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {frameworks.map((l) => (
-          <SkillCard
-            years={l.experience}
-            name={l.name}
-            rate={l.rate}
-          />
-        ))}
-      </div>
-      {/* /////////////////////////////////////////////////////////////// */}
-      <h2 className="mt-12 text-lg font-semibold">Testing</h2>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {testLib.map((l) => (
-          <SkillCard
-            years={l.experience}
-            name={l.name}
-            rate={l.rate}
-          />
-        ))}
-      </div>
-      {/* /////////////////////////////////////////////////////////////// */}
-      <h2 className="mt-12 text-lg font-semibold">Other libraries</h2>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {otherLibs.map((l) => (
-          <SkillCard
-            years={l.experience}
-            name={l.name}
-            rate={l.rate}
-          />
-        ))}
+    <div className="container py-14">
+      {/* Header Section */}
+      <div className="mb-12">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-4 py-2 text-xs font-medium tracking-wide">
+          <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+          Technical Expertise
+        </div>
+        <h1 className="mt-5 text-balance text-4xl font-bold tracking-tighter md:text-5xl">
+          Skills & Technologies
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+          A comprehensive toolkit built through years of hands-on development
+          across multiple domains and technology stacks.
+        </p>
       </div>
 
-      {/* /////////////////////////////////////////////////////////////// */}
-      <h2 className="mt-12 text-lg font-semibold">Other skills</h2>
-      <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {otherSkills.map((l) => (
-          <li
-            key={l}
-            className="rounded-lg border bg-card px-3 py-2 text-card-foreground"
-          >
-            {l.charAt(0).toUpperCase() + l.slice(1)}
-          </li>
-        ))}
-      </ul>
+      {/* Main Bento Grid - Categories */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        {skillCategories.map((category) => {
+          const Icon = category.icon;
+          return (
+            <div
+              key={category.title}
+              className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/30 p-6 transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:-translate-y-1"
+            >
+              {/* Subtle hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+              {/* Header */}
+              <div className="relative mb-6 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-xl bg-primary/10 p-2">
+                    <Icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h2 className="text-xl font-semibold tracking-tight">
+                    {category.title}
+                  </h2>
+                </div>
+                <div className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                  {category.data.length} items
+                </div>
+              </div>
+
+              {/* Skills Grid */}
+              <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-2">
+                {category.data.map((skill: any) => (
+                  <SkillCard
+                    key={skill.name}
+                    years={skill.experience}
+                    name={skill.name}
+                    rate={skill.rate}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Other Skills - Full Width */}
+      <div className="mt-8 overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-r from-secondary/30 to-secondary/20 p-8">
+        <div className="mb-6 flex items-center gap-3">
+          <div className="rounded-xl bg-primary/10 p-2">
+            <Wrench className="h-5 w-5 text-primary" />
+          </div>
+          <h2 className="text-xl font-semibold tracking-tight">Other Skills</h2>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {otherSkills.map((skill: string) => (
+            <span
+              key={skill}
+              className="rounded-full border border-border/50 bg-background/50 px-4 py-2 text-sm font-medium text-foreground/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
+            >
+              {skill.charAt(0).toUpperCase() + skill.slice(1)}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
